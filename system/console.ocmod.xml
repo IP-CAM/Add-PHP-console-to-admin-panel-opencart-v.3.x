@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+    <name>PHP Console for OpenCart 3</name>
+    <code>console</code>
+    <version>1.0.0</version>
+    <author>support@web.gghb.ru</author>
+    <link>https://web.gghb.ru/</link>
+    <file path="admin/controller/common/column_left.php">
+        <operation>
+            <search>
+                <![CDATA[if ($maintenance) {]]>
+            </search>
+            <add position="before">
+                <![CDATA[
+            // Added by PHP Console modificator
+            if($console = $this->load->controller('tool/console/column_left')){
+                $maintenance[] = $console;
+            }
+            // end content added by PHP Console modificator
+            ]]>
+            </add>
+        </operation>
+    </file>
+</modification>
